@@ -12,31 +12,29 @@
 #include <random> // Used for random operations
 #include <algorithm> // Used to trim whitespace for user input
 
-using namespace std;
-
 
 int main() {
 
 	unsigned int pwLength = 10; // standard password length
 
 	// CHAR ARRAYS
-	vector<char> lowercase_vector = {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'};
-	vector<char> uppercase_vector = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'};
-	vector<char> number_vector = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9'};
-	vector<char> special_vector = {'!', '$', '%', '&', '?', '*', '+', '#', '-', '_', '@', '.', ';', '|', '<', '>', '~', '=', '/'};
+	std::vector<char> lowercase_vector = {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'};
+	std::vector<char> uppercase_vector = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'};
+	std::vector<char> number_vector = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9'};
+	std::vector<char> special_vector = {'!', '$', '%', '&', '?', '*', '+', '#', '-', '_', '@', '.', ';', '|', '<', '>', '~', '=', '/'};
 
 	// USER INPUT
-	string a, b, c, d, e;
-	cout << ":: How long should your password be? [Default:" << pwLength << "] ";
-	getline(cin, a);
-	cout << ":: May contain lowercase letters? [Y/n] ";
-	getline(cin, b);
-	cout << ":: May contain uppercase letters? [Y/n] ";
-	getline(cin, c);
-	cout << ":: May contain numbers? [Y/n] ";
-	getline(cin, d);
-	cout << ":: May contain special characters? [Y/n] ";
-	getline(cin, e);
+	std::string a, b, c, d, e;
+	std::cout << ":: How long should your password be? [Default:" << pwLength << "] ";
+	std::getline(std::cin, a);
+	std::cout << ":: May contain lowercase letters? [Y/n] ";
+	std::getline(std::cin, b);
+	std::cout << ":: May contain uppercase letters? [Y/n] ";
+	std::getline(std::cin, c);
+	std::cout << ":: May contain numbers? [Y/n] ";
+	std::getline(std::cin, d);
+	std::cout << ":: May contain special characters? [Y/n] ";
+	std::getline(std::cin, e);
 
 	// trim all whitespace
 	remove(begin(a), end(a), ' ');
@@ -50,7 +48,7 @@ int main() {
 
 		// check if length input is not 0 or less
 		if (stoi(a) <= 0) {
-			cout << "The password length cannot be 0 or less. Impossible!\n";
+			std::cout << "The password length cannot be 0 or less. Impossible!\n";
 			return 1;
 		} else {
 			pwLength = stoi(a);
@@ -59,12 +57,12 @@ int main() {
 
 	// check if all questions were answered with "no"
 	if (b=="n" and c=="n" and d=="n" and e=="n") {
-		cout << "You deselected all elements of the character pool. This is pointless!\n";
+		std::cout << "You deselected all elements of the character pool. This is pointless!\n";
 		return 1;
 	}
 
 	// declare character pool vector and add the corresponding characters
-	vector<char> charPool;
+	std::vector<char> charPool;
 
 	if (b!="n") {
 		charPool.insert(end(charPool), begin(lowercase_vector), end(lowercase_vector));
@@ -83,12 +81,12 @@ int main() {
 	unsigned int charPoolSize = charPool.size();
 
 	// password string for later output
-	string password;
+	std::string password;
 
 	// Randomness
-	uniform_int_distribution<int> distribution(0, charPoolSize);
-	random_device rd;
-	default_random_engine generator(rd());
+	std::uniform_int_distribution<int> distribution(0, charPoolSize);
+	std::random_device rd;
+	std::default_random_engine generator(rd());
 
 	// get a random character and append it to the password string
 	for(unsigned int i=0; i<pwLength; i++) {
@@ -96,7 +94,7 @@ int main() {
 		password += charPool[index];
 	}
 
-	cout << "Finished! Your password is: " << password << "\n";
+	std::cout << "Finished! Your password is: " << password << "\n";
 
 	return 0;
 
