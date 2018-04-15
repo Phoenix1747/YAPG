@@ -78,7 +78,7 @@ int main() {
 	}
 
 	// get pool size
-	unsigned int charPoolSize = charPool.size();
+	unsigned int charPoolSize = charPool.size() - 1;
 
 	// password string for later output
 	std::string password;
