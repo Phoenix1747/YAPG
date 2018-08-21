@@ -1,6 +1,7 @@
 # YAPG
-Very simple password generator. Generates any (practical) password size.
-You can choose from:
+Very simple password generator. Generates any password size until it crashes.
+
+You can choose from ~80 different characters:
 * Uppercase letters
 * Lowercase letters
 * Numbers
@@ -21,6 +22,4 @@ $ ./a.out
 Finished! Your password is: B$Rgc~N43>@5
 ```
 
----
-
-2018, Phoenix1747. MIT license.
+If you're on a x86_64 Linux system, you could also use my pre-compiled binaries down at the [releases section](https://github.com/Phoenix1747/YAPG/releases). However, I recommend compiling it for yourself, it's really quick and easy.
