@@ -1,5 +1,7 @@
 # YAPG
-Very simple password generator. Generates any password size until it crashes.
+Very simple password generator. Generates any password size until it's too big and it crashes.
+
+Maybe this little script helps somebody on how to use the random number generator and the likes in C++.
 
 You can choose from ~80 different characters:
 * Uppercase letters
